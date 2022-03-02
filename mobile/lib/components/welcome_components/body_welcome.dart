@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mobile/components/general_components/rounded_button.dart';
 import 'package:mobile/components/welcome_components/background_welcome.dart';
-import 'package:mobile/components/welcome_components/rounded_button.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/views/login_view.dart';
 

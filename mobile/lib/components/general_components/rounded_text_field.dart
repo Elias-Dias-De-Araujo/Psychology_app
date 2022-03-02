@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/components/login_components/text_field_container.dart';
+import 'package:mobile/components/general_components/text_field_container.dart';
 import 'package:mobile/constants.dart';
 
 class RoudedTextField extends StatelessWidget {

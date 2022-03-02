@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/constants.dart';
+import 'package:mobile/views/finish_first_acess_view.dart';
+import 'package:mobile/views/first_acess_view.dart';
 import 'package:mobile/views/login_view.dart';
 import 'package:mobile/views/welcome_view.dart';
 
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         scaffoldBackgroundColor: Colors.white
       ),
-      home: LoginView(),
+      home: const FinishFirstAcessView(),
     );
   }
 }

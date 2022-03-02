@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/components/login_components/text_field_container.dart';
+import 'package:mobile/components/general_components/text_field_container.dart';
 import 'package:mobile/constants.dart';
 
 class RoundedPasswordField extends StatefulWidget {
   final ValueChanged<String> onChanged;
-  RoundedPasswordField({
+  const RoundedPasswordField({
     Key? key,
     required this.onChanged
   }) : super(key: key);
