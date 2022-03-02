@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mobile/components/background.dart';
-import 'package:mobile/components/rounded_button.dart';
+import 'package:mobile/components/welcome_components/background_welcome.dart';
+import 'package:mobile/components/welcome_components/rounded_button.dart';
+import 'package:mobile/constants.dart';
+import 'package:mobile/views/login_view.dart';
 
-import '../constants.dart';
 
-class Body extends StatelessWidget {
+class BodyWelcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Informa a altura e largura total da tela do dispositivo
     Size size = MediaQuery.of(context).size;
-    return Background(
+    return BackgroundWelcome(
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -18,11 +19,11 @@ class Body extends StatelessWidget {
             const Text(
               'Bem Vindo(a)',
               style: TextStyle(
-                fontSize: 20, 
+                fontSize: 36, 
                 color: primaryColor,
                 fontWeight: FontWeight.bold
               ),
-              ),
+            ),
             SizedBox(height: size.height *0.03,),
             SvgPicture.asset(
               'assets/icons/welcome.svg', 
@@ -31,7 +32,15 @@ class Body extends StatelessWidget {
             
             RoundedButton(
               text: 'LOGIN',
-              press: () {},
+              press: () {
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (context) {return LoginView();
+                    }
+                  ),
+                );
+              },
               color: primaryColor,
               textColor: Colors.white,
             ),

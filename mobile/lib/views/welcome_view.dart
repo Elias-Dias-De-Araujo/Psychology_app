@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/components/body.dart';
+import 'package:mobile/components/welcome_components/body_welcome.dart';
 
-class welcomeView extends StatelessWidget {
+
+class WelcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Body(),
+      body: BodyWelcome(),
     );
   }
 }
