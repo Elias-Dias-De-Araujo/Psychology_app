@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mobile/components/general_components/input_field.dart';
 import 'package:mobile/components/general_components/rounded_button.dart';
 import 'package:mobile/components/general_components/rounded_password_field.dart';
 import 'package:mobile/components/general_components/rounded_text_field.dart';
@@ -8,13 +9,24 @@ import 'package:mobile/components/login_components/background_login.dart';
 
 
 import 'package:mobile/constants.dart';
+import 'package:mobile/models/user.dart';
+import 'package:mobile/providers/users.dart';
 import 'package:mobile/views/first_acess_view.dart';
+import 'package:provider/provider.dart';
 
-class BodyLogin extends StatelessWidget {
+class BodyLogin extends StatefulWidget {
   const BodyLogin({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<BodyLogin> createState() => _BodyLoginState();
+}
+
+class _BodyLoginState extends State<BodyLogin> {
+  final _form = GlobalKey<FormState>();
+  final Map<String, String> _formData = {};
+  String errorEmail = '';
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +49,79 @@ class BodyLogin extends StatelessWidget {
               height: size.height * 0.25,
             ),
             SizedBox(height: size.height *0.03,),
-            RoudedTextField(
-              hintText: 'Email',
-              icon: Icons.email_outlined,
-              onChanged: (value) {},
-            ),
-            RoundedPasswordField(
-              onChanged: (value) {},
+            Form(
+              key: _form,
+              child: Column(
+                children: [
+                  InputField(
+                    hintText: 'Email', 
+                    icon: Icons.email_outlined, 
+                    isSecret: false, 
+                    notEmpty: true, 
+                    onChanged: (String value) {  },
+                    onSaved: (String? value) { 
+                      _formData['email'] =  value!;
+                    },
+                    validator: (String? value) { 
+                      if (true && (value == null || value.isEmpty)) {
+                        _updateView('*Esse campo é obrigatório');
+                        return '';
+                      }else if(!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)){
+                        _updateView('Digite um email válido');
+                        return '';
+                      }
+                      _updateView('');
+                      return null;
+                    },
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        errorEmail,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.red
+                        )
+                      ),
+                    ],
+                  ),
+                  InputField(
+                    hintText: 'Senha', 
+                    icon: Icons.lock_outline, 
+                    isSecret: true, 
+                    notEmpty: true, 
+                    onChanged: (String value) {  },
+                    onSaved: (String? value) { 
+                      _formData['password'] = value!;
+                    },
+                    validator: (String? value) { 
+                      if (true && (value == null || value.isEmpty)) {
+                        return 'Esse campo não pode ser vazio';
+                      }
+                      return null;
+                    },
+                  ),
+                ] 
+              )
             ),
             RoundedButton(
               text: 'LOGIN', 
-              press: () {}, 
+              press: () {
+                final isValid = _form.currentState?.validate();
+
+                if (isValid == true) {
+                  _form.currentState?.save();
+
+                  print(_formData['email']);
+                  print(_formData['password']);
+                  /*
+                  Provider.of<Users>(context, listen: false).put(User(
+                    email: _formData['email'].toString(),
+                    password: _formData['password'].toString(),
+                  ));
+                  */
+                }
+              }, 
               color: primaryColor, 
               textColor: Colors.white
             ),
@@ -64,6 +138,9 @@ class BodyLogin extends StatelessWidget {
         ]
       ),
     );
+  }
+  void _updateView(String value) {
+    setState(() =>errorEmail = value);
   }
 }
 
