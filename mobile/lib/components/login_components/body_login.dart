@@ -64,26 +64,12 @@ class _BodyLoginState extends State<BodyLogin> {
                     },
                     validator: (String? value) { 
                       if (true && (value == null || value.isEmpty)) {
-                        _updateView('*Esse campo é obrigatório');
-                        return '';
+                        return'*Esse campo é obrigatório';
                       }else if(!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)){
-                        _updateView('Digite um email válido');
-                        return '';
+                        return 'Digite um email válido';
                       }
-                      _updateView('');
                       return null;
                     },
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        errorEmail,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: Colors.red
-                        )
-                      ),
-                    ],
                   ),
                   InputField(
                     hintText: 'Senha', 
@@ -138,9 +124,6 @@ class _BodyLoginState extends State<BodyLogin> {
         ]
       ),
     );
-  }
-  void _updateView(String value) {
-    setState(() =>errorEmail = value);
   }
 }
 

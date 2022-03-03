@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile/components/general_components/rounded_button.dart';
 import 'package:mobile/components/welcome_components/background_welcome.dart';
 import 'package:mobile/constants.dart';
+import 'package:mobile/views/first_acess_view.dart';
 import 'package:mobile/views/login_view.dart';
 
 
@@ -36,7 +37,8 @@ class BodyWelcome extends StatelessWidget {
                 Navigator.push(
                   context, 
                   MaterialPageRoute(
-                    builder: (context) {return LoginView();
+                    builder: (context) {
+                      return LoginView();
                     }
                   ),
                 );
@@ -46,7 +48,16 @@ class BodyWelcome extends StatelessWidget {
             ),
             RoundedButton(
               text: 'PRIMEIRO ACESSO',
-              press: () {},
+              press: () {
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return FirstAcessView();
+                    }
+                  ),
+                );
+              },
               color: primaryColorLight,
               textColor: primaryColor,
             ),

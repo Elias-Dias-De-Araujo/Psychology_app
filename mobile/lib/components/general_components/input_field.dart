@@ -34,6 +34,24 @@ class _InputFieldState extends State<InputField> {
       obscureText: widget.isSecret ? noVisibility : widget.isSecret,
       onChanged: widget.onChanged,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: textFieldColor,
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: textOfTextFieldColor, width: 2.0),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: primaryColor, width: 2.0),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.red, width: 2.0),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.red, width: 2.0),
+          borderRadius: BorderRadius.circular(15),
+        ),
         hintText: widget.hintText,
         icon: Icon(
           widget.icon,
@@ -50,7 +68,7 @@ class _InputFieldState extends State<InputField> {
               ),
             )
           : null,
-        border: InputBorder.none),
+        ),
         validator: widget.validator,
         onSaved: widget.onSaved,
       )

@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         scaffoldBackgroundColor: Colors.white
       ),
-      home: const LoginView(),
+      home: WelcomeView(),
     );
   }
 }
