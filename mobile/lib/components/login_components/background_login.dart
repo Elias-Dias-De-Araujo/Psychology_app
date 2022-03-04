@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:indexed/indexed.dart';
+import 'package:mobile/routes/app_routes.dart';
 
 class BackgroundLogin extends StatelessWidget {
   final Widget child;
@@ -16,22 +18,48 @@ class BackgroundLogin extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Image.asset(
-              'assets/images/ellipse_top_left.png',
-              width: size.width * 0.3,
-            )
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: Image.asset(
-              'assets/images/ellipse_bottom_right.png',
-              width: size.width * 0.2,
-            )
-          ),
+        Indexer(
+          children: [
+            Indexed(
+              index: 2,
+              child: Positioned(
+                top: 20,
+                left: 20,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                  ), 
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(AppRoutes.welcome);
+                  },
+                )
+              ),
+            ),
+            Indexed(
+              index: 1,
+              child: Positioned(
+                top: 0,
+                left: 0,
+                child: Image.asset(
+                  'assets/images/ellipse_top_left.png',
+                  width: size.width * 0.3,
+                ),
+              ),
+            ),
+            Indexed(
+              index: 1,
+              child:  Positioned(
+                bottom: 0,
+                left: 0,
+                child: Image.asset(
+                  'assets/images/ellipse_bottom_right.png',
+                  width: size.width * 0.2,
+                ),
+              ),
+            ),
+          ],
+        ),
           child,
         ]
       ),

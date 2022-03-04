@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mobile/components/first_acess_components/background_first_acess.dart';
 import 'package:mobile/components/general_components/input_field.dart';
 import 'package:mobile/components/general_components/rounded_button.dart';
-import 'package:mobile/components/general_components/rounded_password_field.dart';
-import 'package:mobile/components/general_components/rounded_text_field.dart';
 import 'package:mobile/components/general_components/text_check_account.dart';
-import 'package:mobile/components/login_components/background_login.dart';
-
-
 import 'package:mobile/constants.dart';
 import 'package:mobile/models/user.dart';
 import 'package:mobile/providers/users.dart';
 import 'package:mobile/routes/app_routes.dart';
-import 'package:mobile/views/finish_first_acess_view.dart';
-import 'package:mobile/views/login_view.dart';
 import 'package:provider/provider.dart';
 
 class BodyFirstAcess extends StatefulWidget {
@@ -32,7 +26,7 @@ class _BodyFirstAcessState extends State<BodyFirstAcess> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BackgroundLogin(
+    return BackgroundFirstAcess(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -123,7 +117,7 @@ class _BodyFirstAcessState extends State<BodyFirstAcess> {
                     password: _formData['password'].toString(),
                   ));
                   
-                  Navigator.of(context).pushNamed(AppRoutes.firstAcess);
+                  Navigator.of(context).pushNamed(AppRoutes.firstAcessFinish);
                 }
               }, 
               color: primaryColorLight, 

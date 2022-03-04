@@ -21,12 +21,11 @@ class BodyFinishFirstAcess extends StatelessWidget {
               height: size.height * 0.25,
           ),
           SizedBox(height: size.height *0.03,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
             children: const [
              Text(
-                'Concluído',
-                maxLines: 2,
+                'Primeiro Acesso Concluído',
+                textAlign: TextAlign.center ,
                 style: TextStyle(
                   fontSize: 36, 
                   color: Colors.white,
