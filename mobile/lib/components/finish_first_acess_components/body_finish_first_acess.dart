@@ -40,8 +40,8 @@ class BodyFinishFirstAcess extends StatelessWidget {
             press: () {
               Navigator.of(context).pushNamed(AppRoutes.login);
             }, 
-            color: Colors.white, 
-            textColor: primaryColor
+            color: secondaryColorHsl53, 
+            textColor: Colors.white
           ),
         ],
       ),

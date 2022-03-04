@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:indexed/indexed.dart';
+import 'package:mobile/constants.dart';
 import 'package:mobile/routes/app_routes.dart';
 
 class BackgroundFirstAcess extends StatelessWidget {
@@ -31,7 +32,7 @@ class BackgroundFirstAcess extends StatelessWidget {
                 child: IconButton(
                   icon: const Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.white,
+                    color: secondaryColorHsl53,
                   ), 
                   onPressed: () {
                     Navigator.of(context).pushNamed(AppRoutes.welcome);

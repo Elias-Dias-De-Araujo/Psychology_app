@@ -27,7 +27,7 @@ class TextCheckAccount extends StatelessWidget {
             'Clique Aqui',
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: primaryColor
+              color: secondaryColorHsl43
             )
           ),
         )

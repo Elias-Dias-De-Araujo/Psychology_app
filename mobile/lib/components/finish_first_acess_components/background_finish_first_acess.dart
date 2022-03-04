@@ -12,7 +12,7 @@ class BackgroundFinishFirstAcess extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      color: backgroundAlternativeColor,
+      color: primaryColorHsl47,
       width: size.width,
       height: size.height,
       child: Stack(

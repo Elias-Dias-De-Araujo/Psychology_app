@@ -34,7 +34,7 @@ class _BodyFirstAcessState extends State<BodyFirstAcess> {
               'Primeiro Acesso',
               style: TextStyle(
                 fontSize: 36, 
-                color: primaryColor,
+                color: primaryColorHsl37,
                 fontWeight: FontWeight.bold
               ),
             ),
@@ -60,7 +60,7 @@ class _BodyFirstAcessState extends State<BodyFirstAcess> {
                       if (true && (value == null || value.isEmpty)) {
                         return'*Esse campo é obrigatório';
                       }else if(!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)){
-                        return 'Digite um email válido';
+                        return '*Digite um email válido';
                       }
                       return null;
                     },
@@ -78,7 +78,7 @@ class _BodyFirstAcessState extends State<BodyFirstAcess> {
                     },
                     validator: (String? value) { 
                       if (true && (value == null || value.isEmpty)) {
-                        return 'Esse campo não pode ser vazio';
+                        return '*Esse campo não pode ser vazio';
                       }
                       return null;
                     },
@@ -94,9 +94,9 @@ class _BodyFirstAcessState extends State<BodyFirstAcess> {
                     },
                     validator: (String? value) { 
                       if (true && (value == null || value.isEmpty)) {
-                        return 'Esse campo não pode ser vazio';
+                        return '*Esse campo não pode ser vazio';
                       }else if(value != _formData['password']) {
-                        return 'As senhas não são iguais';
+                        return '*As senhas não são iguais';
                       }
                       return null;
                     },
@@ -121,7 +121,7 @@ class _BodyFirstAcessState extends State<BodyFirstAcess> {
                 }
               }, 
               color: primaryColorLight, 
-              textColor: primaryColor
+              textColor: primaryColorHsl37
             ),
             SizedBox(height: size.height *0.03,),
             TextCheckAccount(

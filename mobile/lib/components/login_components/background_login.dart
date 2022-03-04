@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:indexed/indexed.dart';
+import 'package:mobile/constants.dart';
 import 'package:mobile/routes/app_routes.dart';
 
 class BackgroundLogin extends StatelessWidget {
@@ -28,7 +29,7 @@ class BackgroundLogin extends StatelessWidget {
                 child: IconButton(
                   icon: const Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.white,
+                    color: secondaryColorHsl53,
                   ), 
                   onPressed: () {
                     Navigator.of(context).pushNamed(AppRoutes.welcome);
@@ -51,7 +52,7 @@ class BackgroundLogin extends StatelessWidget {
               index: 1,
               child:  Positioned(
                 bottom: 0,
-                left: 0,
+                right: 0,
                 child: Image.asset(
                   'assets/images/ellipse_bottom_right.png',
                   width: size.width * 0.2,

@@ -22,7 +22,7 @@ class BodyWelcome extends StatelessWidget {
               'Bem Vindo(a)',
               style: TextStyle(
                 fontSize: 36, 
-                color: primaryColor,
+                color: primaryColorHsl37,
                 fontWeight: FontWeight.bold
               ),
             ),
@@ -37,7 +37,7 @@ class BodyWelcome extends StatelessWidget {
               press: () {
                 Navigator.of(context).pushNamed(AppRoutes.login);
               },
-              color: primaryColor,
+              color: primaryColorHsl37,
               textColor: Colors.white,
             ),
             RoundedButton(
@@ -46,7 +46,7 @@ class BodyWelcome extends StatelessWidget {
                 Navigator.of(context).pushNamed(AppRoutes.firstAcess);
               },
               color: primaryColorLight,
-              textColor: primaryColor,
+              textColor: primaryColorHsl37,
             ),
           ],
         ),

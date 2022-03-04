@@ -37,11 +37,11 @@ class _InputFieldState extends State<InputField> {
         filled: true,
         fillColor: textFieldColor,
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: textOfTextFieldColor, width: 2.0),
+          borderSide: const BorderSide(color: primaryColorHsl27, width: 2.0),
           borderRadius: BorderRadius.circular(15),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: primaryColor, width: 2.0),
+          borderSide: const BorderSide(color: primaryColorHsl37, width: 2.0),
           borderRadius: BorderRadius.circular(15),
         ),
         focusedErrorBorder: OutlineInputBorder(
@@ -55,7 +55,7 @@ class _InputFieldState extends State<InputField> {
         hintText: widget.hintText,
         icon: Icon(
           widget.icon,
-          color: textOfTextFieldColor,
+          color: primaryColorHsl27,
         ),
         suffixIcon: widget.isSecret == true
           ? GestureDetector(
@@ -64,7 +64,7 @@ class _InputFieldState extends State<InputField> {
               noVisibility
                 ? Icons.visibility_outlined
                 : Icons.visibility_off_outlined,
-                color: textOfTextFieldColor,
+                color: primaryColorHsl27,
               ),
             )
           : null,

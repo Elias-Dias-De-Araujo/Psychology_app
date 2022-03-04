@@ -21,7 +21,7 @@ class RoudedTextField extends StatelessWidget {
         decoration: InputDecoration(
           icon: Icon(
             icon, 
-            color: textOfTextFieldColor,
+            color: primaryColorHsl27,
           ),
           hintText: hintText,
           border: InputBorder.none,
