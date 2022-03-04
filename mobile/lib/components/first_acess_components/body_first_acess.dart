@@ -9,8 +9,12 @@ import 'package:mobile/components/login_components/background_login.dart';
 
 
 import 'package:mobile/constants.dart';
+import 'package:mobile/models/user.dart';
+import 'package:mobile/providers/users.dart';
+import 'package:mobile/routes/app_routes.dart';
 import 'package:mobile/views/finish_first_acess_view.dart';
 import 'package:mobile/views/login_view.dart';
+import 'package:provider/provider.dart';
 
 class BodyFirstAcess extends StatefulWidget {
   const BodyFirstAcess({
@@ -114,19 +118,12 @@ class _BodyFirstAcessState extends State<BodyFirstAcess> {
                 if (isValid == true) {
                   _form.currentState?.save();
 
-                  print(_formData['email']);
-                  print(_formData['password']);
-                  /*
                   Provider.of<Users>(context, listen: false).put(User(
                     email: _formData['email'].toString(),
                     password: _formData['password'].toString(),
                   ));
-                  */
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const FinishFirstAcessView()),
-                  );
+                  
+                  Navigator.of(context).pushNamed(AppRoutes.firstAcess);
                 }
               }, 
               color: primaryColorLight, 
@@ -136,13 +133,8 @@ class _BodyFirstAcessState extends State<BodyFirstAcess> {
             TextCheckAccount(
               firstAcess: false, 
               press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LoginView()
-                    ),
-                  );
-              },
+                Navigator.of(context).pushNamed(AppRoutes.login);
+              }
             )
         ]
       ),

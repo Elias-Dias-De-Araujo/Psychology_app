@@ -11,6 +11,7 @@ import 'package:mobile/components/login_components/background_login.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/models/user.dart';
 import 'package:mobile/providers/users.dart';
+import 'package:mobile/routes/app_routes.dart';
 import 'package:mobile/views/first_acess_view.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +27,6 @@ class BodyLogin extends StatefulWidget {
 class _BodyLoginState extends State<BodyLogin> {
   final _form = GlobalKey<FormState>();
   final Map<String, String> _formData = {};
-  String errorEmail = '';
 
   @override
   Widget build(BuildContext context) {
@@ -98,14 +98,11 @@ class _BodyLoginState extends State<BodyLogin> {
                 if (isValid == true) {
                   _form.currentState?.save();
 
-                  print(_formData['email']);
-                  print(_formData['password']);
-                  /*
                   Provider.of<Users>(context, listen: false).put(User(
                     email: _formData['email'].toString(),
                     password: _formData['password'].toString(),
                   ));
-                  */
+                  
                 }
               }, 
               color: primaryColor, 
@@ -115,11 +112,8 @@ class _BodyLoginState extends State<BodyLogin> {
             TextCheckAccount(
               firstAcess: true, 
               press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  const FirstAcessView()),
-                );
-              },
+                Navigator.of(context).pushNamed(AppRoutes.firstAcess);
+              }
             )
         ]
       ),

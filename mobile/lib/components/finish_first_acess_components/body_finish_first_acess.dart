@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile/components/finish_first_acess_components/background_finish_first_acess.dart';
 import 'package:mobile/components/general_components/rounded_button.dart';
 import 'package:mobile/constants.dart';
+import 'package:mobile/routes/app_routes.dart';
 import 'package:mobile/views/login_view.dart';
 
 class BodyFinishFirstAcess extends StatelessWidget {
@@ -38,11 +39,7 @@ class BodyFinishFirstAcess extends StatelessWidget {
           RoundedButton(
             text: 'IR PARA LOGIN', 
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                builder: (context) => const LoginView()),
-              );
+              Navigator.of(context).pushNamed(AppRoutes.login);
             }, 
             color: Colors.white, 
             textColor: primaryColor
