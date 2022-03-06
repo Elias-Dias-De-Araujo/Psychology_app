@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const primaryColorHsl57 = Color.fromRGBO(66, 225, 219, 1);
 const primaryColorHsl47 = Color.fromRGBO(33, 207, 201, 1);
