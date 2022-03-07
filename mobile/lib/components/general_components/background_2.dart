@@ -3,9 +3,9 @@ import 'package:indexed/indexed.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/routes.dart';
 
-class BackgroundLogin extends StatelessWidget {
+class Background2 extends StatelessWidget {
   final Widget child;
-  const BackgroundLogin({Key? key, required this.child}) : super(key: key);
+  const Background2({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
