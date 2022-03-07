@@ -92,6 +92,8 @@ class _LoginViewState extends State<LoginView> {
                     email: _formData['email'].toString(),
                     password: _formData['password'].toString(),
                   )); */
+
+                  Navigator.of(context).pushNamed(AppRoutes.mainView);
                 }
               },
               color: primaryColorHsl37,

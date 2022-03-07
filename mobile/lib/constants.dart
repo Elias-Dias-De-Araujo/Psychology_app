@@ -17,3 +17,4 @@ const secondaryColorLight = Color.fromRGBO(255, 230, 233, 1);
 
 const textFieldColor = Color.fromRGBO(245, 245, 245, 1);
 const subText = Color.fromRGBO(196, 196, 196, 1);
+const navigationBarColor = Color.fromRGBO(246, 246, 246, 1);
