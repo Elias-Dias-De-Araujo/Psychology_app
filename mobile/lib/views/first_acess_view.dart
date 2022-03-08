@@ -6,12 +6,11 @@ import 'package:mobile/components/general_components/rounded_button.dart';
 import 'package:mobile/components/general_components/text_check_account.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/models/user_model.dart';
-import 'package:mobile/providers/user_provider.dart';
 import 'package:mobile/routes.dart';
 import 'package:provider/provider.dart';
 
 class FirstAcessView extends StatefulWidget {
-  const FirstAcessView({ Key? key }) : super(key: key);
+  const FirstAcessView({Key? key}) : super(key: key);
 
   @override
   State<FirstAcessView> createState() => _FirstAcessViewState();
@@ -29,10 +28,7 @@ class _FirstAcessViewState extends State<FirstAcessView> {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Text(
             'Primeiro Acesso',
-            style: TextStyle(
-                fontSize: 36,
-                color: primaryColorHsl37,
-                fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 36, color: primaryColorHsl37, fontWeight: FontWeight.bold),
           ),
           SvgPicture.asset(
             'assets/icons/sign_up_icon.svg',
@@ -56,8 +52,7 @@ class _FirstAcessViewState extends State<FirstAcessView> {
                   validator: (String? value) {
                     if (true && (value == null || value.isEmpty)) {
                       return '*Esse campo é obrigatório';
-                    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}')
-                        .hasMatch(value)) {
+                    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)) {
                       return '*Digite um email válido';
                     }
                     return null;
@@ -107,10 +102,6 @@ class _FirstAcessViewState extends State<FirstAcessView> {
 
                 if (isValid == true) {
                   _form.currentState?.save();
-
-                  Provider.of<Users>(context, listen: false).firstAcess(User(
-                    email: _formData['email'].toString(),
-                  ));
 
                   Navigator.of(context).pushNamed(AppRoutes.firstAcessFinish);
                 }
