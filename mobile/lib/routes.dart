@@ -6,7 +6,8 @@ import 'package:mobile/views/main_view.dart';
 import 'package:mobile/views/welcome_view.dart';
 
 class AppRoutes {
-  static const welcome = '/';
+  //O welcome fica como '/welcome' para que o '/' possa ser usado pela propriedade
+  static const welcome = '/welcome';
   static const login = '/login';
   static const firstAcess = '/firstAcess';
   static const firstAcessFinish = '/firstAcessFinish';
