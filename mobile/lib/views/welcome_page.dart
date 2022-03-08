@@ -1,41 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mobile/components/general_components/rounded_button.dart';
-import 'package:mobile/components/general_components/background_1.dart';
+import 'package:mobile/components/background_auth.dart';
+import 'package:mobile/components/rounded_button.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/routes.dart';
 
-class WelcomeView extends StatelessWidget {
-  const WelcomeView({Key? key}) : super(key: key);
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({Key? key}) : super(key: key);
+  final bool isLogin = true;
 
   @override
   Widget build(BuildContext context) {
     // Informa a altura e largura total da tela do dispositivo
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Background1(
+      body: BgAuth(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
                 'Bem Vindo(a)',
-                style: TextStyle(
-                    fontSize: 36,
-                    color: primaryColorHsl37,
-                    fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 36, color: primaryColorHsl37, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
-                height: size.height * 0.03,
-              ),
-              SvgPicture.asset(
-                'assets/icons/welcome.svg',
-                height: size.height * 0.5,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset(
+                  'assets/icons/welcome.svg',
+                  height: size.height * 0.5,
+                ),
               ),
               RoundedButton(
                 text: 'LOGIN',
                 press: () {
-                  Navigator.of(context).pushNamed(AppRoutes.login);
+                  Navigator.of(context).pushNamed(AppRoutes.auth, arguments: isLogin);
                 },
                 color: primaryColorHsl37,
                 textColor: Colors.white,
@@ -43,7 +41,7 @@ class WelcomeView extends StatelessWidget {
               RoundedButton(
                 text: 'PRIMEIRO ACESSO',
                 press: () {
-                  Navigator.of(context).pushNamed(AppRoutes.firstAcess);
+                  Navigator.of(context).pushNamed(AppRoutes.auth, arguments: !isLogin);
                 },
                 color: primaryColorLight,
                 textColor: primaryColorHsl37,

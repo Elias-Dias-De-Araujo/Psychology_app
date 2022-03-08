@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/routes.dart';
-import 'package:mobile/widgets/auth_wrapper.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -12,8 +11,7 @@ class App extends StatelessWidget {
       title: 'App Psicólogo',
       debugShowCheckedModeBanner: false,
       theme: appTheme,
-      home: const AuthWrapper(),
-      //routes: AppRoutes.routes,
+      routes: AppRoutes.routes,
     );
   }
 }
