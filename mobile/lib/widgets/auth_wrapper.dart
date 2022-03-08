@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/views/auth_page.dart';
+import 'package:mobile/views/home_page.dart';
 import 'package:provider/provider.dart';
 
 class AuthWrapper extends StatefulWidget {
@@ -17,9 +19,9 @@ class _AuthWrapperState extends State<AuthWrapper> {
     if (auth.isLoading) {
       return loading();
     } else if (auth.usuario == null) {
-      return const Text('Building (NAO ESTA LOGADO)');
+      return AuthPage();
     } else {
-      return const Text('Building (LOGADO)');
+      return HomePage();
     }
   }
 

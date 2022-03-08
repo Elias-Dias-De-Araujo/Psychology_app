@@ -69,14 +69,3 @@ class AuthProvider extends ChangeNotifier {
     _getUser();
   }
 }
-
-/*       db
-          .collection('users')
-          .where('email', isEqualTo: email)
-          .get()
-          .then((QuerySnapshot queryResult) async {
-        (queryResult.size == 0)
-            ? throw Exception(
-                'Para usar nosso sistema, é preciso estar pré-registrado por um de nossos psicólogos')
-            : await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      }); */
