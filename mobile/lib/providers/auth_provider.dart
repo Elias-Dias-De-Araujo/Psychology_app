@@ -33,12 +33,16 @@ class AuthProvider extends ChangeNotifier {
 
   registrar(String email, String senha) async {
     try {
-      db.collection('users').where('email', isEqualTo: email).get().then((QuerySnapshot queryResult) async {
+      await db
+          .collection('users')
+          .where('email', isEqualTo: email)
+          .get()
+          .then((QuerySnapshot queryResult) async {
         (queryResult.size == 0)
             ? throw FirebaseAuthException(code: 'not-registered')
             : await _auth.createUserWithEmailAndPassword(email: email, password: senha);
       });
-      _getUser();
+      _getUser().then(print('chamando funcao _getUser()'));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         throw AuthException('A senha é muito fraca!');
@@ -54,7 +58,7 @@ class AuthProvider extends ChangeNotifier {
   login(String email, String senha) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: senha);
-      _getUser();
+      _getUser().then(print('chamando funcao _getUser()'));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         throw AuthException('Email não encontrado. Cadastre-se.');

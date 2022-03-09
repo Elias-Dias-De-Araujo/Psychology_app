@@ -51,21 +51,21 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   login() async {
-    setState(() => loading = true);
+    //setState(() => loading = true);
     try {
       await context.read<AuthProvider>().login(email.text, senha.text);
     } on AuthException catch (e) {
-      setState(() => loading = false);
+      //setState(() => loading = false);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message)));
     }
   }
 
   registrar() async {
-    setState(() => loading = true);
+    //setState(() => loading = true);
     try {
       await context.read<AuthProvider>().registrar(email.text, senha.text);
     } on AuthException catch (e) {
-      setState(() => loading = false);
+      //setState(() => loading = false);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message)));
     }
   }

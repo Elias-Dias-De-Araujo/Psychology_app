@@ -13,7 +13,7 @@ void main() async {
           create: (ctx) => AuthProvider(),
         ),
       ],
-      child: const App(),
+      child: App(),
     ),
   );
 }
