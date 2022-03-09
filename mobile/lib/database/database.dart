@@ -1,7 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mobile/models/user_model.dart';
 
 class DatabaseService {
+  DatabaseService._();
+
+  static final DatabaseService _instance = DatabaseService._();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  static FirebaseFirestore get() {
+    return DatabaseService._instance._firestore;
+  }
+}
+
+/* class DatabaseService {
   final String uid;
   DatabaseService({required this.uid});
 
@@ -32,8 +42,8 @@ class DatabaseService {
     }).toList();
   }
 
-  // get brews stream
+  // get user stream
   Stream<List<User>> get users {
     return userCollection.snapshots().map(_userListFromSnapshot);
   }
-}
+} */

@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/views/finish_first_acess_view.dart';
-import 'package:mobile/views/first_acess_view.dart';
-import 'package:mobile/views/login_view.dart';
-import 'package:mobile/views/main_view.dart';
-import 'package:mobile/views/welcome_view.dart';
+import 'package:mobile/views/auth_page.dart';
+import 'package:mobile/views/welcome_page.dart';
+import 'package:mobile/widgets/auth_wrapper.dart';
 
 class AppRoutes {
+  //O welcome fica como '/welcome' para que o '/' possa ser usado pela propriedade
+  static const home = '/home';
   static const welcome = '/';
-  static const login = '/login';
-  static const firstAcess = '/firstAcess';
-  static const firstAcessFinish = '/firstAcessFinish';
-  static const mainView = '/mainView';
+  static const auth = '/auth';
 
   static final routes = <String, WidgetBuilder>{
-    welcome: (BuildContext ctx) => const WelcomeView(),
-    login: (BuildContext ctx) => const LoginView(),
-    firstAcess: (BuildContext ctx) => const FirstAcessView(),
-    firstAcessFinish: (BuildContext ctx) => const FinishFirstAcessView(),
-    mainView: (BuildContext ctx) => const MainView(),
+    welcome: (BuildContext ctx) => const WelcomePage(),
+    auth: (BuildContext ctx) => const AuthWrapper(),
   };
 }
