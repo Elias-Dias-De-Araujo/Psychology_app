@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile/components/background_auth.dart';
@@ -34,6 +36,7 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   setFormAction(bool acao) {
+    print('jurus');
     setState(() {
       isLogin = acao;
       if (isLogin) {
@@ -77,94 +80,100 @@ class _AuthPageState extends State<AuthPage> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-        body: BgAuth(
-      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(
-          titulo,
-          style: const TextStyle(fontSize: 36, color: primaryColorHsl37, fontWeight: FontWeight.bold),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SvgPicture.asset(
-            asset,
-            height: size.height * 0.25,
+      body: BgAuth(
+      child: SingleChildScrollView(
+        reverse: true,
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center, 
+          children: [
+          Text(
+            titulo,
+            style: const TextStyle(fontSize: 36, color: primaryColorHsl37, fontWeight: FontWeight.bold),
           ),
-        ),
-        Form(
-            key: _formKey,
-            child: Column(children: [
-              InputField(
-                hintText: 'Email',
-                icon: Icons.email_outlined,
-                isSecret: false,
-                notEmpty: true,
-                controller: email,
-                validator: (String? value) {
-                  if (true && (value == null || value.isEmpty)) {
-                    return '*Esse campo é obrigatório';
-                  } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)) {
-                    return '*Digite um email válido';
-                  }
-                  return null;
-                },
-              ),
-              InputField(
-                hintText: 'Senha',
-                icon: Icons.lock_outline,
-                isSecret: true,
-                notEmpty: true,
-                controller: senha,
-                validator: (String? value) {
-                  if (true && (value == null || value.isEmpty)) {
-                    return '*Esse campo é obrigatório';
-                  }
-                  return null;
-                },
-              ),
-              if (!isLogin)
-                //Caso seja registro, fazer 3° input para confirmação de senha
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SvgPicture.asset(
+              asset,
+              height: size.height * 0.25,
+            ),
+          ),
+          Form(
+              key: _formKey,
+              child: Column(children: [
                 InputField(
-                  hintText: 'Repetir Senha',
-                  icon: Icons.lock_outline,
-                  isSecret: true,
+                  hintText: 'Email',
+                  icon: Icons.email_outlined,
+                  isSecret: false,
                   notEmpty: true,
-                  controller: confirmSenha,
+                  controller: email,
                   validator: (String? value) {
                     if (true && (value == null || value.isEmpty)) {
                       return '*Esse campo é obrigatório';
-                    } else if (value != senha.text) {
-                      return '*As senhas não são iguais';
+                    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)) {
+                      return '*Digite um email válido';
                     }
                     return null;
                   },
                 ),
-            ])),
-        RoundedButton(
-          text: actionButton,
-          press: () {
-            if (_formKey.currentState!.validate()) {
-              if (isLogin) {
-                login();
-              } else {
-                registrar();
+                InputField(
+                  hintText: 'Senha',
+                  icon: Icons.lock_outline,
+                  isSecret: true,
+                  notEmpty: true,
+                  controller: senha,
+                  validator: (String? value) {
+                    if (true && (value == null || value.isEmpty)) {
+                      return '*Esse campo é obrigatório';
+                    }
+                    return null;
+                  },
+                ),
+                if (!isLogin)
+                  //Caso seja registro, fazer 3° input para confirmação de senha
+                  InputField(
+                    hintText: 'Repetir Senha',
+                    icon: Icons.lock_outline,
+                    isSecret: true,
+                    notEmpty: true,
+                    controller: confirmSenha,
+                    validator: (String? value) {
+                      if (true && (value == null || value.isEmpty)) {
+                        return '*Esse campo é obrigatório';
+                      } else if (value != senha.text) {
+                        return '*As senhas não são iguais';
+                      }
+                      return null;
+                    },
+                  ),
+              ])),
+          RoundedButton(
+            text: actionButton,
+            press: () {
+              if (_formKey.currentState!.validate()) {
+                if (isLogin) {
+                  login();
+                } else {
+                  registrar();
+                }
               }
-            }
-          },
-          color: primaryColorHsl37,
-          textColor: Colors.white,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(toggleButton),
-            TextButton(
-              onPressed: () => setFormAction(!isLogin),
-              child: const Text('Clique aqui.',
-                  style: TextStyle(fontWeight: FontWeight.bold, color: secondaryColorHsl43)),
-            ),
-          ],
-        ),
-      ]),
+            },
+            color: primaryColorHsl37,
+            textColor: Colors.white,
+          ),
+          Wrap(
+            alignment: WrapAlignment.center,
+            children: [
+              Text(toggleButton),
+              TextButton(
+                onPressed: () => setFormAction(!isLogin),
+                child: const Text('Clique aqui.',
+                    style: TextStyle(fontWeight: FontWeight.bold, color: secondaryColorHsl43)),
+              ),
+            ],
+          ),
+        ]),
+      ),
     ));
   }
 }
