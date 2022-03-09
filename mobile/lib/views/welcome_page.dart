@@ -15,6 +15,7 @@ class WelcomePage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: BgAuth(
+        isWelcome: true,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

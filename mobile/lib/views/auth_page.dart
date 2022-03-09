@@ -22,6 +22,7 @@ class _AuthPageState extends State<AuthPage> {
   final senha = TextEditingController();
   final confirmSenha = TextEditingController();
 
+  bool alreadyInTheScreen = false;
   bool isLogin = false;
   late String titulo;
   late String actionButton;
@@ -32,11 +33,10 @@ class _AuthPageState extends State<AuthPage> {
   @override
   void initState() {
     super.initState();
-    setFormAction(true);
   }
 
-  setFormAction(bool acao) {
-    print('jurus');
+  void setFormAction(bool acao) {
+    alreadyInTheScreen = true;
     setState(() {
       isLogin = acao;
       if (isLogin) {
@@ -76,11 +76,12 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     bool args = ModalRoute.of(context)?.settings.arguments as bool;
-    setFormAction(args);
+    if(!alreadyInTheScreen)setFormAction(args);
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       body: BgAuth(
+      isWelcome: false,
       child: SingleChildScrollView(
         reverse: true,
         padding: const EdgeInsets.all(32),

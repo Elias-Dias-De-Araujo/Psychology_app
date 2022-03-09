@@ -3,8 +3,9 @@ import 'package:indexed/indexed.dart';
 import 'package:mobile/constants.dart';
 
 class BgAuth extends StatelessWidget {
+  final bool isWelcome;
   final Widget child;
-  BgAuth({Key? key, required this.child}) : super(key: key);
+  BgAuth({Key? key, required this.isWelcome, required this.child,}) : super(key: key);
   final List<double?> index1 = [20, 20], index2 = [0, 0], index3 = [0, 0];
 
   @override
@@ -16,6 +17,7 @@ class BgAuth extends StatelessWidget {
       child: Stack(alignment: Alignment.center, children: [
         Indexer(
           children: [
+            if(!isWelcome)
             Indexed(
               index: 2,
               child: Positioned(
