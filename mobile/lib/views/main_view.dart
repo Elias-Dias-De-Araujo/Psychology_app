@@ -21,8 +21,8 @@ class _MainViewState extends State<MainView> {
         //body: views[index],
         bottomNavigationBar: NavigationBarTheme(
       data: NavigationBarThemeData(
-          backgroundColor: navigationBarColor,
-          indicatorColor: primaryColorHsl57,
+          backgroundColor: const Color(0xf6f6f6ff),
+          indicatorColor: primary400,
           labelTextStyle: MaterialStateProperty.all(
             Theme.of(context).textTheme.bodyText2,
           )),
@@ -30,7 +30,7 @@ class _MainViewState extends State<MainView> {
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         height: 60,
         selectedIndex: index,
-        animationDuration: Duration(seconds: 1),
+        animationDuration: const Duration(seconds: 1),
         onDestinationSelected: (index) => setState(() => this.index = index),
         destinations: const [
           NavigationDestination(

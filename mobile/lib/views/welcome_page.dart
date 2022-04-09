@@ -22,7 +22,7 @@ class WelcomePage extends StatelessWidget {
             children: [
               const Text(
                 'Bem Vindo(a)',
-                style: TextStyle(fontSize: 36, color: primaryColorHsl37, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 36, color: primary400, fontWeight: FontWeight.bold),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -36,7 +36,7 @@ class WelcomePage extends StatelessWidget {
                 press: () {
                   Navigator.of(context).pushNamed(AppRoutes.auth, arguments: isLogin);
                 },
-                color: primaryColorHsl37,
+                color: primary400,
                 textColor: Colors.white,
               ),
               RoundedButton(
@@ -44,8 +44,8 @@ class WelcomePage extends StatelessWidget {
                 press: () {
                   Navigator.of(context).pushNamed(AppRoutes.auth, arguments: !isLogin);
                 },
-                color: primaryColorLight,
-                textColor: primaryColorHsl37,
+                color: primary500,
+                textColor: Colors.white,
               ),
             ],
           ),

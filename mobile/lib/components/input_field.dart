@@ -39,13 +39,13 @@ class _InputFieldState extends State<InputField> {
           controller: widget.controller,
           decoration: InputDecoration(
             filled: true,
-            fillColor: textFieldColor,
+            fillColor: const Color(0xf6f6f6ff),
             focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: primaryColorHsl27, width: 2.0),
+              borderSide: const BorderSide(color: primary400, width: 2.0),
               borderRadius: BorderRadius.circular(15),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: primaryColorHsl37, width: 2.0),
+              borderSide: const BorderSide(color: primary400, width: 2.0),
               borderRadius: BorderRadius.circular(15),
             ),
             focusedErrorBorder: OutlineInputBorder(
@@ -59,14 +59,14 @@ class _InputFieldState extends State<InputField> {
             hintText: widget.hintText,
             icon: Icon(
               widget.icon,
-              color: primaryColorHsl27,
+              color: primary400,
             ),
             suffixIcon: widget.isSecret == true
                 ? GestureDetector(
                     onTap: _changeVisibility,
                     child: Icon(
                       noVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
-                      color: primaryColorHsl27,
+                      color: primary400,
                     ),
                   )
                 : null,

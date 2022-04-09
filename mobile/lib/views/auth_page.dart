@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile/components/background_auth.dart';
@@ -22,7 +20,6 @@ class _AuthPageState extends State<AuthPage> {
   final senha = TextEditingController();
   final confirmSenha = TextEditingController();
 
-  bool alreadyInTheScreen = false;
   bool isLogin = false;
   late String titulo;
   late String actionButton;
@@ -36,7 +33,6 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   void setFormAction(bool acao) {
-    alreadyInTheScreen = true;
     setState(() {
       isLogin = acao;
       if (isLogin) {
@@ -75,22 +71,22 @@ class _AuthPageState extends State<AuthPage> {
 
   @override
   Widget build(BuildContext context) {
-    bool args = ModalRoute.of(context)?.settings.arguments as bool;
-    if(!alreadyInTheScreen)setFormAction(args);
+    bool args = ModalRoute.of(context)!.settings.arguments == null
+        ? true
+        : ModalRoute.of(context)!.settings.arguments as bool;
+    setFormAction(args);
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: BgAuth(
+        body: BgAuth(
       isWelcome: false,
       child: SingleChildScrollView(
         reverse: true,
         padding: const EdgeInsets.all(32),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, 
-          children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Text(
             titulo,
-            style: const TextStyle(fontSize: 36, color: primaryColorHsl37, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 36, color: primary400, fontWeight: FontWeight.bold),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -159,7 +155,7 @@ class _AuthPageState extends State<AuthPage> {
                 }
               }
             },
-            color: primaryColorHsl37,
+            color: primary400,
             textColor: Colors.white,
           ),
           Wrap(
@@ -169,7 +165,7 @@ class _AuthPageState extends State<AuthPage> {
               TextButton(
                 onPressed: () => setFormAction(!isLogin),
                 child: const Text('Clique aqui.',
-                    style: TextStyle(fontWeight: FontWeight.bold, color: secondaryColorHsl43)),
+                    style: TextStyle(fontWeight: FontWeight.bold, color: secondary400)),
               ),
             ],
           ),

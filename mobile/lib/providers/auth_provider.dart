@@ -51,6 +51,9 @@ class AuthProvider extends ChangeNotifier {
       } else if (e.code == 'not-registered') {
         throw AuthException(
             'Para utilizar nosso sistema, é necessário estar pré-registrado por um de nossos psicólogos');
+      } else {
+        String? a = e.message;
+        throw AuthException('Erro desconhecido : $a');
       }
     }
   }

@@ -5,7 +5,11 @@ import 'package:mobile/constants.dart';
 class BgAuth extends StatelessWidget {
   final bool isWelcome;
   final Widget child;
-  BgAuth({Key? key, required this.isWelcome, required this.child,}) : super(key: key);
+  BgAuth({
+    Key? key,
+    required this.isWelcome,
+    required this.child,
+  }) : super(key: key);
   final List<double?> index1 = [20, 20], index2 = [0, 0], index3 = [0, 0];
 
   @override
@@ -17,22 +21,22 @@ class BgAuth extends StatelessWidget {
       child: Stack(alignment: Alignment.center, children: [
         Indexer(
           children: [
-            if(!isWelcome)
-            Indexed(
-              index: 2,
-              child: Positioned(
-                  top: index1[0],
-                  left: index1[1],
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: secondaryColorHsl53,
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  )),
-            ),
+            if (!isWelcome)
+              Indexed(
+                index: 2,
+                child: Positioned(
+                    top: index1[0],
+                    left: index1[1],
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back_ios,
+                        color: secondary500,
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    )),
+              ),
             Indexed(
               index: 1,
               child: Positioned(

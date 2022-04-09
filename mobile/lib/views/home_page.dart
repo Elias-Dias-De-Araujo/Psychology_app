@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/providers/auth_provider.dart';
+import 'package:mobile/views/pages/start_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,16 +44,17 @@ class _HomePageState extends State<HomePage> {
         controller: pc,
         children: [
           //As views vem aqui
+          const StartPage(),
           TextButton(
             onPressed: () => logout(),
-            child: const Text('LOGOUT.',
-                style: TextStyle(fontWeight: FontWeight.bold, color: secondaryColorHsl43)),
+            child: const Text('LOGOUT.', style: TextStyle(fontWeight: FontWeight.bold, color: secondary400)),
           ),
         ],
         onPageChanged: setPaginaAtual,
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: paginaAtual,
+        selectedItemColor: primary400,
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.home), label: 'Inicio'),
